@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SPEED VAGAS PRO 6.4 • GESTOR INTELIGENTE</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand"><div class="mark">S</div><div><b>SPEED</b><span>VAGAS</span></div></div>
+  <div class="version">PRO 6.4 • BUSCA INTELIGENTE • AUTOMAÇÃO SEGURA</div>
+  <nav id="nav">
+    <button class="active" data-page="dashboard">⌂ <span>Início</span></button>
+    <button data-page="buscar">⌕ <span>Vagas</span></button>
+    <button data-page="atividade">◉ <span>Atividade</span><i id="activityBadge"></i></button>
+    <button data-page="candidaturas">✓ <span>Candidaturas</span></button>
+    <button data-page="perfil">♙ <span>Meu perfil</span></button>
+    <button data-page="config">⚙ <span>Configurações</span></button>
+  </nav>
+  <div class="sidefoot"><span class="dot"></span><div><b>Sistema ativo</b><small>Automação monitorando</small></div></div>
+</aside>
+<main>
+<header class="top"><div><p class="eyebrow" id="eyebrow">AUTOMAÇÃO</p><h1 id="title">SPEED VAGAS</h1><p id="subtitle">Busca, candidatura, respostas e alertas em um só lugar.</p></div>
+<div class="actions"><button class="soft" id="checkEmailTop">✉ Verificar respostas</button><button class="primary" id="runAutomationTop">⚡ Executar agora</button></div></header>
+
+<section class="page active" id="dashboard">
+  <div class="hero proHero">
+    <div><span class="badge">GERENTE DE EMPREGOS</span><h2>Busca, decisão e candidatura com controle.</h2>
+    <p>O SPEED procura vagas reais, explica descartes, prepara rascunhos e pode autoenviar apenas quando você habilitar a regra de score alto e limite diário.</p>
+    <div class="heroActions"><button class="primary bigMain" id="runAutomation">⚡ Buscar + preparar candidaturas</button><button class="soft" data-go="atividade">Ver o que o SPEED fez</button></div></div>
+    <div class="automationState"><span class="liveDot"></span><b>Automação ativa</b><small>Score alto • limite diário • histórico completo</small></div>
+  </div>
+  <div id="alertsBox" class="alertsBox"></div>
+  <div class="stats dashboardStats">
+    <article><span>Analisadas hoje</span><strong id="stJobs">0</strong><small>vagas processadas</small></article>
+    <article><span>Compatíveis</span><strong id="stCompat">0</strong><small>boas para você</small></article>
+    <article><span>Enviadas hoje</span><strong id="stSent">0</strong><small>manual + automático</small></article>
+    <article><span>Taxa de resposta</span><strong id="stResponse">0%</strong><small>retornos / candidaturas</small></article>
+    <article><span>Entrevistas</span><strong id="stInterviews">0</strong><small>detectadas no Gmail</small></article>
+    <article><span>Precisa de você</span><strong id="stAction">0</strong><small>entrevista / portal / teste</small></article>
+  </div>
+  <div class="grid2">
+    <div class="card"><div class="head"><div><p class="eyebrow">MELHORES AGORA</p><h2>Vagas recomendadas</h2></div><button class="link" data-go="buscar">Ver todas →</button></div><div id="recommended" class="joblist"></div></div>
+    <div class="card"><div class="head"><div><p class="eyebrow">ÚLTIMAS AÇÕES</p><h2>O que o SPEED fez</h2></div><button class="link" data-go="atividade">Histórico →</button></div><div id="recentActivity" class="timeline compact"></div></div>
+  </div>
+</section>
+
+<section class="page" id="buscar">
+  <div class="card searchHero"><p class="eyebrow">VAGAS</p><h2>Vagas que realmente combinam com seu perfil</h2>
+  <p class="muted">Somente Júnior, Estágio, Assistente, Auxiliar e N1 em TI/Dados. N2/N3, Tier II/III, Pleno e Sênior são descartados.</p>
+  <div class="simpleSearchControls">
+    <select id="simpleScope">
+<option value="EAST_PLUS_REMOTE" selected>Zona Leste + Home Office</option>
+<option value="EAST_ZONE">Somente Zona Leste</option>
+<option value="REMOTE">Somente Home Office</option>
+</select>
+    <button class="primary bigMain" id="findForMe">⌕ Procurar vagas</button>
+  </div><div id="simpleSearchStatus" class="simpleStatus">Pronto para procurar.</div><div id="providerStatus" class="providerStatus"></div></div>
+  <div class="intelPanel mt">
+  <div class="intelHead"><div><p class="eyebrow">GESTOR INTELIGENTE</p><h2>O que a inteligência fez</h2></div><span id="googleSearchState" class="statusPill">Google Search: verificando...</span></div>
+  <div class="intelStats">
+    <article><span>Google</span><strong id="igFound">0</strong><small>resultados brutos</small></article>
+    <article><span>Filtradas</span><strong id="igFiltered">0</strong><small>Júnior/Estágio/N1</small></article>
+    <article><span>Salvas</span><strong id="igSaved">0</strong><small>no gestor</small></article>
+    <article><span>Portais</span><strong id="igSources">0</strong><small>fontes com resultado</small></article>
+    <article><span>Precisa de você</span><strong id="igHuman">0</strong><small>portal / teste / CAPTCHA</small></article>
+  </div>
+  <div id="sourceHealth" class="sourceHealth"></div>
+</div>
+<div class="card mt"><div class="head"><div><p class="eyebrow">RESULTADOS</p><h2>Vagas encontradas</h2></div><div class="resultTools"><select id="sort"><option value="priority">Melhores para mim</option><option value="recent">Mais recentes</option><option value="compatibility">Maior compatibilidade</option></select><span class="counter" id="jobCount">0 vagas</span></div></div><div id="jobs" class="joblist"></div></div>
+<div class="card mt"><div class="head"><div><p class="eyebrow">DIAGNÓSTICO DE DESCARTE</p><h2>Por que algumas vagas não entraram</h2></div><button class="soft" id="refreshDiscarded">Atualizar</button></div><div id="discardedJobs" class="discardList"><div class="empty">Nenhum descarte registrado.</div></div></div>
+</section>
+
+<section class="page" id="atividade">
+  <div class="card"><div class="head"><div><p class="eyebrow">AUDITORIA</p><h2>Atividade do SPEED</h2></div><button class="soft" id="refreshActivity">Atualizar</button></div>
+  <p class="muted">Aqui está a prova do que aconteceu: busca, vaga descartada, currículo enviado, portal pendente, resposta do RH e entrevista.</p>
+  <div id="activity" class="timeline"></div></div>
+  <div class="card mt"><div class="head"><div><p class="eyebrow">E-MAIL</p><h2>Respostas das empresas</h2></div><button class="primary" id="checkEmail">✉ Verificar Gmail</button></div><div id="emailEvents" class="emailList"></div></div>
+</section>
+
+<section class="page" id="candidaturas">
+  <div class="card"><div class="head"><div><p class="eyebrow">ACOMPANHAMENTO</p><h2>Minhas candidaturas</h2></div><div class="headActions"><button class="soft" id="approveBulk90">Aprovar todas 90%+</button><span class="counter" id="appSummary">0 registros</span></div></div>
+  <p class="muted">Verde = enviado após sua confirmação. Amarelo = rascunho aguardando aprovação ou outra ação necessária.</p><div id="apps" class="joblist"></div></div>
+</section>
+
+<section class="page" id="perfil"><div class="gridProfile"><div class="card profileBox"><div class="photo" id="photoPreview">JC</div><h2 id="profileName">Júlio César</h2><p id="profileLocation">Ferraz de Vasconcelos • SP</p><label class="upload">Adicionar foto<input type="file" id="photoFile" accept="image/jpeg,image/png,image/webp"></label><label class="upload secondary">Atualizar currículo<input type="file" id="resumeFile" accept="application/pdf,.doc,.docx"></label><div id="docStatus" class="miniStatus"></div></div>
+<div class="card"><p class="eyebrow">PERFIL PROFISSIONAL</p><h2>Dados usados na busca</h2><form id="profileForm" class="form"><div class="row"><input name="name" placeholder="Nome"><input name="email" placeholder="E-mail"></div><div class="row"><input name="phone" placeholder="Telefone"><input name="city" placeholder="Cidade"></div><div class="row"><input name="state" placeholder="UF"></div><textarea name="target_roles" rows="5" placeholder="Cargos alvo"></textarea><textarea name="skills" rows="7" placeholder="Habilidades"></textarea><button class="primary">Salvar perfil</button></form></div></div></section>
+
+<section class="page" id="config">
+  <div class="grid2">
+    <div class="card"><p class="eyebrow">AUTOMAÇÃO</p><h2>Quando o SPEED trabalha</h2><form id="settingsForm" class="form">
+      <label>Compatibilidade mínima<input name="min_score_auto" type="number" value="65" min="50" max="95"></label>
+      <label>Máximo por rodada<input name="max_auto_per_run" type="number" value="10" min="1" max="30"></label>
+      <label>Limite diário geral de envios<input name="max_auto_per_day" type="number" value="20" min="1" max="50"></label>
+      <label class="toggleLine"><input name="auto_send_email" type="checkbox" value="true"> Autoenvio por score alto</label>
+      <label>Score mínimo do autoenvio<input name="auto_send_min_score" type="number" value="85" min="80" max="99"></label>
+      <label>Máximo de autoenvios por dia<input name="auto_send_daily_limit" type="number" value="3" min="1" max="20"></label>
+      <label class="toggleLine"><input name="auto_manager_enabled" type="checkbox" value="true" checked> Automação ativa</label>
+      <label>Verificar novas vagas a cada (minutos)<input name="auto_manager_interval_minutes" type="number" value="30" min="15"></label><label class="toggleLine"><input name="email_monitor_enabled" type="checkbox" value="true" checked> Monitorar respostas do Gmail</label><label>Verificar respostas a cada (minutos)<input name="email_monitor_interval_minutes" type="number" value="10" min="5"></label>
+      <button class="primary">Salvar preferências</button></form>
+    </div>
+    
+<div class="card googleSearchCard">
+  <p class="eyebrow">GOOGLE • BUSCA INTELIGENTE</p>
+  <h2>Google + LinkedIn + Indeed + InfoJobs + Vagas.com.br + Gupy</h2>
+  <p class="muted">As credenciais da Google Programmable Search ficam somente no backend e nunca são salvas no navegador.</p>
+  <div id="googleSearchConfigStatus" class="miniStatus">Verificando configuração segura do backend...</div><div id="googleQuotaStatus" class="quotaMeter">Cota diária: verificando...</div>
+  <p class="tinyNote">Configure <code>SPEED_GOOGLE_SEARCH_KEY</code> e <code>SPEED_GOOGLE_SEARCH_CX</code> como variáveis de ambiente. Elas não aparecem no DevTools/localStorage.</p>
+</div>
+<div class="card googleSetupCard">
+  <p class="eyebrow">GOOGLE / GMAIL API</p>
+  <h2>Conectar sua conta Google</h2>
+  <p class="muted">Faça uma única configuração. Depois o SPEED usa a Gmail API para enviar currículos e acompanhar respostas sem pedir sua senha do Google.</p>
+
+  <div class="googleWizard">
+    <div class="wizardStep" id="googleStep1">
+      <div class="stepNumber">1</div>
+      <div class="stepBody">
+        <b>Criar credencial do SPEED VAGAS</b>
+        <p>Abra o Google Cloud, crie um OAuth Client do tipo <strong>Desktop app</strong> e baixe o arquivo <code>credentials.json</code>.</p>
+        <button class="soft" id="openGoogleCloudBtn">Abrir Google Cloud</button>
+      </div>
+      <span class="stepState" id="step1State">Pendente</span>
+    </div>
+
+    <div class="wizardStep" id="googleStep2">
+      <div class="stepNumber">2</div>
+      <div class="stepBody">
+        <b>Importar credentials.json</b>
+        <p>Selecione o arquivo que o Google Cloud forneceu. O SPEED salva essa credencial apenas neste computador.</p>
+        <input id="googleCredentialsFile" type="file" accept="application/json">
+        <button class="soft" id="saveGoogleCredentials">Importar credentials.json</button>
+      </div>
+      <span class="stepState" id="step2State">Pendente</span>
+    </div>
+
+    <div class="wizardStep" id="googleStep3">
+      <div class="stepNumber">3</div>
+      <div class="stepBody">
+        <b>Autorizar sua conta Google</b>
+        <p>O Google abrirá no navegador. Escolha sua conta e autorize o SPEED VAGAS.</p>
+        <button class="primary" id="connectGoogleBtn" type="button">G Continuar com Google</button><button class="soft" id="repairGoogleBtn" type="button" style="display:none">↻ Reconectar permissões Google</button>
+        <button class="soft" id="disconnectGoogleBtn">Desconectar Google</button>
+      </div>
+      <span class="stepState" id="step3State">Pendente</span>
+    </div>
+  </div>
+
+  <div id="gmailState" class="statusPill">Verificando conexão...</div>
+  <div id="googleOAuthStatus" class="miniStatus"></div>
+
+  <div class="googleTestRow">
+    <button class="soft" id="sendVerificationCodeBtn">Enviar e-mail de teste</button>
+    <button class="soft" id="checkEmailConnectionBtn">Testar leitura do Gmail</button>
+  </div>
+  <div id="verificationCodeStatus" class="miniStatus"></div>
+</div></div></div></div>
+  </div>
+  <div class="card mt"><div class="head"><div><p class="eyebrow">SAÚDE DO SISTEMA</p><h2>Diagnóstico</h2></div><button class="soft" id="runDiagnostics">Executar</button></div><div id="diagnosticState" class="miniStatus">Pronto.</div></div>
+  <div class="card mt"><div class="head"><div><p class="eyebrow">APARÊNCIA</p><h2>Tema do aplicativo</h2></div><button class="soft" id="themeToggle">Alternar claro/escuro</button></div><p class="muted">Tema salvo somente neste navegador local.</p></div>
+  <div class="card mt securityCard"><p class="eyebrow">SEGURANÇA</p><h2>Proteções ativas</h2><div class="tech"><div><b>Localhost only</b><span>Backend escuta somente 127.0.0.1</span></div><div><b>SQL parametrizado</b><span>Queries com PreparedStatement</span></div><div><b>Headers de segurança</b><span>CSP, X-Frame-Options, nosniff</span></div><div><b>Credenciais fora do código</b><span>Segredos via ambiente do Windows</span></div></div></div>
+</section>
+</main></div>
+<div id="toast"></div><script src="search_intelligence.js?v=6.4.0"></script><script src="app.js?v=6.4.0"></script>
+</body></html>

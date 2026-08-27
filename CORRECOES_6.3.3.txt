@@ -1,0 +1,23 @@
+SPEED VAGAS PRO 6.3.3 - CORRECAO DE BUILD
+
+Causa confirmada pelo build.log do Windows:
+- O codigo principal compilava normalmente.
+- SearchRulesTest.java chamava JobRules.isRelevantToProfile com 5 argumentos.
+- O metodo atual recebe 4 argumentos.
+- Isso fazia o Maven falhar em testCompile e o launcher interrompia a primeira inicializacao.
+
+Correcao:
+- SearchRulesTest.java atualizado para a assinatura atual de 4 argumentos.
+- Versao Maven atualizada para 6.3.3.
+- Cache-busting do frontend atualizado para 6.3.3.
+
+Validacao realizada antes do ZIP:
+- 13 fontes Java principais compiladas com javac 21: OK.
+- 4 fontes de teste compiladas contra a assinatura atual (stubs JUnit apenas para verificacao estatica): OK.
+- LogicSelfTest: 11/11 PASS.
+- ProviderParsingTest: 5/5 PASS.
+- Regressao de busca/perfil executada: 5/5 PASS.
+- node --check app.js e search_intelligence.js: OK.
+- frontend e backend/web sincronizados: OK.
+
+Observacao: este ambiente nao possui o executavel Maven nem Windows/PowerShell GUI. Por isso o passo final 'mvn package' e o launcher .vbs devem ser executados no Windows. A falha exata reportada pelo Maven no build.log foi corrigida no fonte de teste.

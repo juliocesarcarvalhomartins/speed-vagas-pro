@@ -1,0 +1,19 @@
+SPEED VAGAS PRO 6.3 - LAUNCHER FINAL CORRIGIDO
+
+1. Extraia o ZIP inteiro para uma pasta do Windows.
+2. Dê dois cliques em: ABRIR SPEED VAGAS PRO.vbs
+3. O splash será exibido enquanto o aplicativo é preparado.
+4. Na primeira execução, o launcher pode baixar Java 21 e Maven portáteis automaticamente.
+5. Quando o backend responder, o Dashboard abre no navegador.
+
+O launcher roda escondido, sem janela CMD.
+
+Se houver erro:
+- clique em "Ver detalhes" no splash; ou
+- abra launcher\launcher.log
+
+Correções desta versão:
+- limpa marcadores antigos antes de abrir o splash;
+- evita falso "Pronto" causado por .ready de execução anterior;
+- timeout visual caso a inicialização fique travada;
+- valida se os scripts principais do launcher existem antes de executar.

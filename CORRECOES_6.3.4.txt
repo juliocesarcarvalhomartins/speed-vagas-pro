@@ -1,0 +1,12 @@
+SPEED VAGAS PRO 6.3.4 - FLUXO GOOGLE SEM ABA TRAVADA
+
+Correcoes:
+- Continuar com Google deixou de ser link direto e virou botao controlado pelo app.
+- Antes de abrir /google/connect, o frontend verifica se credentials.json existe.
+- Se a credencial estiver ausente, o usuario permanece no painel Configuracoes e recebe instrucao no passo 2.
+- Reconectar permissoes Google usa o mesmo fluxo validado.
+- Se /google/connect for acessado diretamente sem credencial, o backend redireciona para /?google=credentials-missing em vez de deixar o usuario preso numa pagina de erro.
+- O frontend reconhece esse retorno e abre Configuracoes automaticamente.
+- Pagina de erro OAuth generico ganhou link absoluto de retorno ao SPEED.
+- Frontend e backend/web sincronizados.
+- Cache-busting atualizado para 6.3.4.

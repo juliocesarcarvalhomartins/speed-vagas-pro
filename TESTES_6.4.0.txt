@@ -1,0 +1,21 @@
+SPEED VAGAS PRO 6.4.0 — VALIDAÇÃO ANTES DA ENTREGA
+Data: 2026-08-20
+
+PASSOU:
+- Compilação Java 21 de todos os fontes principais.
+- 11/11 LogicSelfTest.
+- 7/7 parsers/providers: Jobicy, Remotive, Adzuna, Arbeitnow e RemoteOK.
+- 8/8 regressões da busca: contexto de anos de experiência, perfil dinâmico, queries do perfil e score por combinação/título.
+- 8/8 decisões puras da AutomationService: duplicata, bad-match, autoenvio habilitado/desabilitado, cota, draft, portal e sem canal.
+- Compilação de tipo/sintaxe dos testes JUnit AutomationServiceTest, SearchRulesTest e SchemaCompatibilityTest.
+- Paridade estática H2/MySQL: 16 tabelas e 7 colunas críticas.
+- JavaScript: node --check em app.js e search_intelligence.js.
+- HTML: IDs únicos e controles 6.4 presentes.
+- frontend e backend/web byte a byte sincronizados.
+- schemas database/ e backend/sql/ sincronizados.
+- fluxo ativo de Gmail sem IMAP/senha de app no código Java.
+- checagem de ausência de literals de client_secret/access_token/refresh_token no frontend.
+
+OBSERVAÇÃO DE AMBIENTE:
+- Este ambiente não possui Maven/H2 instalados e não tem acesso externo para baixar dependências; por isso o ciclo Maven+H2 completo não foi executado aqui.
+- Para evitar repetir a falha anterior de testCompile, todos os fontes Java principais foram compilados com javac 21 e os testes JUnit novos foram type-checked contra a mesma API usada no código. O launcher continua usando Maven no Windows na primeira montagem.

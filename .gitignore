@@ -1,0 +1,56 @@
+# Java build
+backend/build/
+*.class
+*.jar
+
+# Runtime
+app/runtime/
+runtime/
+logs/
+data/*.mv.db
+data/*.trace.db
+
+# Secrets
+credentials.json
+client_secret*.json
+*.properties
+.env
+.env.*
+
+# Personal files
+*.pdf
+*.doc
+*.docx
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Build
+backend/target/
+backend/build/
+*.class
+*.jar
+
+# Runtime data (never commit real user data / secrets)
+data/
+*.env
+.env
+client_secret*.json
+token/
+
+# Secrets / local credentials
+.env
+.env.*
+!.env.example
+credentials.json
+**/credentials.json
+**/*token*.json
+**/google-oauth/
+data/
+backend/data/
+
+# Launcher portable runtime
+launcher/tools/
+launcher/.ready
+launcher/.error

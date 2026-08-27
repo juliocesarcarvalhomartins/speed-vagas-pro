@@ -1,0 +1,10 @@
+SPEED VAGAS PRO 6.3.1 - Correcoes
+
+1. Corrigido erro JavaScript: gsCfg is not defined.
+2. Botao Procurar vagas nao depende mais do Google Programmable Search para executar a busca publica.
+3. Google Search passou a ser opcional; Jobicy/Remotive/Adzuna continuam sendo consultados pelo backend.
+4. Login Google verifica credenciais antes de abrir o OAuth.
+5. O backend tenta localizar automaticamente credentials.json/client_secret*.json em Downloads, na raiz do app ou via SPEED_GOOGLE_CREDENTIALS.
+6. Cache-busting do frontend atualizado para 6.3.1.
+
+Observacao: credenciais privadas do Google nao sao embutidas neste ZIP.

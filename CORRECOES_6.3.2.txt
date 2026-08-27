@@ -1,0 +1,7 @@
+SPEED VAGAS PRO 6.3.2 - BUSCA REAL / PERFIL
+
+- smartSearch usa target_roles e skills do perfil em vez de queries fixas.
+- relevancia de carreira passou a ser dinamica por perfil; nao fica presa a uma lista fixa de TI.
+- regra de 3+ anos so bloqueia quando o numero aparece em contexto de requisito/experiencia.
+- fontes publicas continuam utilizaveis sem Google Programmable Search e sem Adzuna.
+- adicionados testes JUnit de regressao para os problemas acima.

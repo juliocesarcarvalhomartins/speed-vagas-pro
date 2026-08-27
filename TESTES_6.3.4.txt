@@ -1,0 +1,17 @@
+SPEED VAGAS PRO 6.3.4 - RELATORIO DE TESTES
+
+Executados neste ambiente:
+[OK] Java 21: 13 fontes principais compilados com javac --release 21.
+[OK] LogicSelfTest: 11/11 passaram.
+[OK] ProviderParsingTest: 5/5 passaram.
+[OK] app.js validado com node --check.
+[OK] frontend/app.js e backend/web/app.js identicos.
+[OK] frontend/index.html e backend/web/index.html identicos.
+[OK] connectGoogleBtn e repairGoogleBtn sao botoes, sem href direto para /google/connect.
+[OK] Backend redireciona credencial ausente para /?google=credentials-missing.
+[OK] Frontend trata google=credentials-missing e abre Configuracoes.
+
+Limitacao do ambiente:
+- Maven nao esta instalado neste container, entao mvn test/package nao foi executado aqui.
+- O launcher Windows (.vbs/.ps1) nao pode ser executado ponta a ponta neste Linux.
+- A compilacao Java equivalente dos fontes principais e os self-tests foram executados com Java 21.

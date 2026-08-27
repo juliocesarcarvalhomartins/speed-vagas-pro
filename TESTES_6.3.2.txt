@@ -1,0 +1,13 @@
+SPEED VAGAS PRO 6.3.2 - RELATORIO DE TESTES
+
+Executados antes da entrega:
+- Compilacao Java 21 de todo backend/src/main/java: PASS
+- LogicSelfTest: 11 PASS / 0 FAIL
+- ProviderParsingTest (Jobicy, Remotive, Adzuna): 5 PASS / 0 FAIL
+- Regressao da busca por perfil/anos de experiencia: 7 PASS / 0 FAIL
+- JavaScript frontend app.js/search_intelligence.js: sintaxe PASS
+- Regressao JavaScript da busca Google por perfil: 5 PASS / 0 FAIL
+- OAuth credentials Desktop app aceito / Web app rejeitado: 2 PASS / 0 FAIL
+- frontend e backend/web sincronizados: PASS
+
+Observacao: o ambiente de teste nao possui Windows/PowerShell GUI nem Maven instalado, entao o launcher .vbs nao pode ser executado ponta-a-ponta aqui. A logica do launcher foi mantida da versao corrigida anterior; o backend e o frontend alterados nesta versao foram compilados/validados conforme acima.
